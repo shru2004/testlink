@@ -1,0 +1,470 @@
+/* =================================
+   VALENTINE'S QUEST - STYLES
+   ================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, 
+        #667eea 0%, 
+        #764ba2 25%, 
+        #f093fb 50%, 
+        #f5576c 75%, 
+        #4facfe 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    min-height: 100vh;
+    position: relative;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating Elements */
+#floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-element {
+    position: absolute;
+    opacity: 0;
+    animation: float 6s infinite linear;
+}
+
+.floating-heart::before { content: '💖'; font-size: 20px; display: block; }
+.floating-rose::before { content: '🌹'; font-size: 18px; display: block; }
+.floating-sparkle::before { content: '✨'; font-size: 16px; display: block; }
+
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Page System */
+.page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.page.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Landing Page */
+#landing-page {
+    background: rgba(0, 0, 0, 0.3);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.content-container {
+    text-align: center;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+    to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.3); }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.romantic-button {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+    pointer-events: auto;
+    z-index: 1000;
+    position: relative;
+}
+
+.romantic-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Tasks Container */
+#tasks-container {
+    background: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+}
+
+.progress-bar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    z-index: 100;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 1s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.task {
+    max-width: 600px;
+    margin: 60px auto 0;
+    transition: all 0.5s ease;
+}
+
+.task.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+    display: none;
+}
+
+.task-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.task-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.riddle {
+    margin: 25px 0;
+    padding: 20px;
+    background: rgba(255, 182, 193, 0.2);
+    border-radius: 15px;
+    border-left: 4px solid #ff6b6b;
+}
+
+.riddle p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    font-style: italic;
+}
+
+.riddle em {
+    color: #ff6b6b;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.input-container {
+    margin: 25px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.answer-input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.answer-input:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    border: none;
+    padding: 15px 25px;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hint-btn {
+    background: transparent;
+    border: 2px solid #ff6b6b;
+    color: #ff6b6b;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.hint-btn:hover {
+    background: #ff6b6b;
+    color: white;
+}
+
+.hint-text {
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(255, 193, 7, 0.1);
+    border-radius: 10px;
+    color: #666;
+    font-style: italic;
+    border-left: 3px solid #ffc107;
+}
+
+.hint-text.hidden,
+.feedback.hidden {
+    display: none;
+}
+
+.feedback {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.feedback.success {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+    border-left: 3px solid #4caf50;
+}
+
+.feedback.error {
+    background: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+    border-left: 3px solid #f44336;
+}
+
+/* Valentine Page */
+#valentine-page {
+    background: radial-gradient(circle at center, 
+        rgba(255, 107, 107, 0.3) 0%, 
+        rgba(0, 0, 0, 0.7) 100%);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+}
+
+.valentine-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#typed-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
+    margin-bottom: 50px;
+}
+
+.valentine-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    animation: cardPulse 2s ease-in-out infinite alternate;
+}
+
+.valentine-card.hidden {
+    display: none;
+}
+
+@keyframes cardPulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.02); }
+}
+
+.valentine-card h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #ff6b6b;
+    margin-bottom: 30px;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.valentine-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.valentine-btn {
+    padding: 20px 40px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.yes-btn {
+    background: linear-gradient(45deg, #4caf50, #66bb6a);
+    color: white;
+}
+
+.yes-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(76, 175, 80, 0.4);
+}
+
+.no-btn {
+    background: linear-gradient(45deg, #f44336, #ef5350);
+    color: white;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Remove the hover animation - will be handled by JavaScript */
+
+/* Celebration Page */
+#celebration-page {
+    background: radial-gradient(circle at center, 
+        rgba(255, 107, 107, 0.4) 0%, 
+        rgba(138, 43, 226, 0.6) 50%,
+        rgba(0, 0, 0, 0.8) 100%);
+}
+
+.celebration-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: white;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    animation: celebrationPulse 2s ease-in-out infinite;
+}
+
+@keyframes celebrationPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    animation: confettiFall 3s linear infinite;
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.burst-heart {
+    position: absolute;
+    font-size: 30px;
+    animation: burstOut 2s ease-out infinite;
+}
+
+@keyframes burstOut {
+    0% { opacity: 1; transform: translate(0, 0) scale(0); }
+    50% { opacity: 0.8; transform: translate(var(--x), var(--y)) scale(1); }
+    100% { opacity: 0; transform: translate(calc(var(--x) * 2), calc(var(--y) * 2)) scale(0.5); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes cardAppear {
+    0% { opacity: 0; transform: scale(0.8) translateY(30px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title { font-size: 2.5rem; }
+    .task-content { padding: 30px 20px; margin: 80px 20px 0; }
+    .input-container { flex-direction: column; }
+    .valentine-buttons { flex-direction: column; }
+    .valentine-card { margin: 0 20px; padding: 30px 20px; }
+    .valentine-card h1 { font-size: 2.2rem; }
+    .celebration-title { font-size: 2.5rem; padding: 0 20px; }
+}
