@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? 💕</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Animation Elements -->
+    <div id="floating-elements"></div>
+    
+    <!-- Landing Page -->
+    <div id="landing-page" class="page active">
+        <div class="content-container">
+            <h1 class="main-title">A Little Journey Before I Ask You Something…</h1>
+            <p class="subtitle">Five places hold our story. Can you find them?</p>
+            <button id="start-quest" class="romantic-button">Start the Quest ✨</button>
+        </div>
+    </div>
+
+    <!-- Tasks Container -->
+    <div id="tasks-container" class="page">
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+            <span class="progress-text">Task 1 of 5</span>
+        </div>
+
+        <!-- Task 1 -->
+        <div class="task" id="task-1">
+            <div class="task-content">
+                <h2 class="task-title">The Beginning 💫</h2>
+                <div class="riddle">
+                    <p>Where our voices first learned each other,<br>
+                    where a simple hello carried forever inside it,<br>
+                    where the world quietly stepped back so we could begin.<br>
+                    <em>What do I call the place where our story was born?</em></p>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="answer-input" placeholder="Type your heart's answer..." data-answer="Shantiniketan">
+                    <button class="submit-btn">Submit 💖</button>
+                </div>
+                <button class="hint-btn">💭 Gentle Hint</button>
+                <div class="hint-text hidden">Think of the place where our voices first found each other...</div>
+                <div class="feedback hidden"></div>
+            </div>
+        </div>
+
+        <!-- Task 2 -->
+        <div class="task hidden" id="task-2">
+            <div class="task-content">
+                <h2 class="task-title">Sweet Mornings ☕</h2>
+                <div class="riddle">
+                    <p>Where mornings didn't need coffee,<br>
+                    just roads, quiet smiles, and unfinished conversations.<br>
+                    Where every drop-off felt like a promise to meet again.<br>
+                    <em>What do we call the place where our mornings became ours?</em></p>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="answer-input" placeholder="Where our mornings began..." data-answer="dropping you to college">
+                    <button class="submit-btn">Submit 💖</button>
+                </div>
+                <button class="hint-btn">💭 Gentle Hint</button>
+                <div class="hint-text hidden">Think of the journey we shared every morning...</div>
+                <div class="feedback hidden"></div>
+            </div>
+        </div>
+
+        <!-- Task 3 -->
+        <div class="task hidden" id="task-3">
+            <div class="task-content">
+                <h2 class="task-title">Under Open Skies 🌸</h2>
+                <div class="riddle">
+                    <p>Where the sky leaned closer to listen,<br>
+                    where blossoms and silence stood witness,<br>
+                    where walking side by side felt like arriving.<br>
+                    <em>What do we call the place where nature watched us fall deeper?</em></p>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="answer-input" placeholder="Our secret garden..." data-answer="Kadugudi Tree Park">
+                    <button class="submit-btn">Submit 💖</button>
+                </div>
+                <button class="hint-btn">💭 Gentle Hint</button>
+                <div class="hint-text hidden">A park where trees and nature surrounded us...</div>
+                <div class="feedback hidden"></div>
+            </div>
+        </div>
+
+        <!-- Task 4 -->
+        <div class="task hidden" id="task-4">
+            <div class="task-content">
+                <h2 class="task-title">Our Favorite Escape 🏡</h2>
+                <div class="riddle">
+                    <p>Where the world paused just long enough for us,<br>
+                    where laughter lived between ordinary moments,<br>
+                    where being together felt like belonging.<br>
+                    <em>What do we call the place where our little world existed?</em></p>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="answer-input" placeholder="Our special place..." data-answer="Park Square">
+                    <button class="submit-btn">Submit 💖</button>
+                </div>
+                <button class="hint-btn">💭 Gentle Hint</button>
+                <div class="hint-text hidden">Think of the place where we created our own little world...</div>
+                <div class="feedback hidden"></div>
+            </div>
+        </div>
+
+        <!-- Task 5 -->
+        <div class="task hidden" id="task-5">
+            <div class="task-content">
+                <h2 class="task-title">The Heart of It All 💖</h2>
+                <div class="riddle">
+                    <p>After every road we travelled,<br>
+                    after every morning that found us closer,<br>
+                    after every sky and every quiet escape,<br>
+                    there was one place I kept returning to.<br>
+                    <em>Who has always been my favorite place?</em></p>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="answer-input" placeholder="Your answer..." data-answer="Me">
+                    <button class="submit-btn">Submit 💖</button>
+                </div>
+                <button class="hint-btn">💭 Gentle Hint</button>
+                <div class="hint-text hidden">The answer is closer than you think... it's you!</div>
+                <div class="feedback hidden"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Valentine Page -->
+    <div id="valentine-page" class="page">
+        <div class="valentine-content">
+            <div class="typing-text">
+                <p id="typed-message"></p>
+            </div>
+            <div class="valentine-card hidden">
+                <h1>💖 Will you be my Valentine? 💖</h1>
+                <div class="valentine-buttons">
+                    <button id="yes-btn" class="valentine-btn yes-btn">YES 💘</button>
+                    <button id="no-btn" class="valentine-btn no-btn">NO 🙈</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Celebration -->
+    <div id="celebration-page" class="page">
+        <div class="celebration-content">
+            <h1 class="celebration-title">I knew it. Always you. Always us. 💕</h1>
+            <div class="celebration-animation">
+                <div class="heart-burst"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Music (Optional) -->
+    <audio id="background-music" loop>
+        <!-- Add your music file here: <source src="romantic-music.mp3" type="audio/mpeg"> -->
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
